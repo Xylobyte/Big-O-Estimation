@@ -4,7 +4,7 @@
 #include "blackbox.h"
 
 int main() {
-    unsigned long num = 9223372036854775;
+    unsigned long num = 0000000000000001;
     function_1(num);
     printf("Hello!\n");
 }
