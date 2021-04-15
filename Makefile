@@ -1,13 +1,10 @@
 CC = gcc
 CFLAGS = -g -Wall -no-pie
 
-all: main.o main
+all: main
 
-main.o: main.c
-	$(CC) $(CFLAGS) -c main.c
-
-main: main.o blackbox.o
-	$(CC) $(CFLAGS) -o main main.o blackbox.o
+main: main.c blackbox.o
+	$(CC) $(CFLAGS) -o main main.c blackbox.o
 
 clean:
 	rm *.o
