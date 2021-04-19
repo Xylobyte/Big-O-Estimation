@@ -173,9 +173,7 @@ unsigned long *makeList(unsigned long size) {
 
 void shuffleList(unsigned long *list, unsigned long size) {
     srandom(time(NULL));
-    printf("Checkpoint 0\n");
     for (unsigned long i = size - 1; i > 0; i--) {
-        printf("Checkpoint 0.5\n");
         unsigned long j = randomNumber() % (i + 1);
         swap(&(list[0]), &(list[j]));
     }
@@ -192,13 +190,9 @@ unsigned long *reverseList(unsigned long size) {
 }
 
 void swap(unsigned long *a, unsigned long *b) {
-    printf("Checkpoint 1\n");
     unsigned long temp = *a;
-    printf("Checkpoint 2\n");
     *a = *b;
-    printf("Checkpoint 3\n");
     *b = temp;
-    printf("Checkpoint 4\n");
 }
 
 unsigned long randomNumber() {
