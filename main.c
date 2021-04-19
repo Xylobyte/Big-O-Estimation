@@ -8,20 +8,25 @@ unsigned long *makeList(unsigned long size);
 
 int main(int argc, char *argv[]) {
     int c;
-    int function;
+    int function = 0;
+    int iterations = 0;
+    clock_t timeElapsed[3];
     unsigned long size = 0;
 
     if (argc == 1) {
-        printf("usage: main -s size -f function\n");
+        printf("usage: main -s size -f function -l -i iterations\n");
         exit(EXIT_FAILURE);
     }
-    while((c = getopt(argc, argv, ":s:f")) != -1) {
+    while((c = getopt(argc, argv, ":s:f:i")) != -1) {
         switch(c) {
             case 's':
-                size = atoi(optarg);
+                size = atol(optarg);
                 break;
             case 'f':
-                function = atoi(optarg);
+                function = atol(optarg);
+                break;
+            case 'i':
+                iterations = atol(optarg);
                 break;
             case ':':
                 fprintf(stderr, "%s: option '-%c' requires an argument\n", argv[0], optopt);
@@ -33,10 +38,87 @@ int main(int argc, char *argv[]) {
                 break;
         }
     }
-    if(size) {
-        unsigned long *list = makeList(size);
-        for (int i = 0; i < size; ++i) {
-            printf("%lu\n", *(list + i));
+
+    unsigned long increments = size / iterations;
+
+    if(function) {
+        switch(function) {
+            case 1:
+                for(unsigned long i = 0; i <= size; i+= increments) {
+                    for(int j = 0; j < 3; j++) {
+                        timeElapsed[j] = clock();
+                        function_1(i);
+                        timeElapsed[j] = clock() - timeElapsed[j];
+                    }
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                }
+                break;
+            case 2:
+                for(unsigned long i = 0; i <= size; i+= increments) {
+                    for(int j = 0; j < 3; j++) {
+                        timeElapsed[j] = clock();
+                        function_2(i);
+                        timeElapsed[j] = clock() - timeElapsed[j];
+                    }
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                }
+                break;
+            case 3:
+                for(unsigned long i = 0; i <= size; i+= increments) {
+                    unsigned long *list = makeList(i);
+                    for(int j = 0; j < 3; j++) {
+                        timeElapsed[j] = clock();
+                        function_3(list, i);
+                        timeElapsed[j] = clock() - timeElapsed[j];
+                    }
+                    free(list);
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                }
+                break;
+            case 4:
+                for(unsigned long i = 0; i <= size; i+= increments) {
+                    for(int j = 0; j < 3; j++) {
+                        timeElapsed[j] = clock();
+                        function_4(i);
+                        timeElapsed[j] = clock() - timeElapsed[j];
+                    }
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                }
+                break;
+            case 5:
+                for(unsigned long i = 0; i <= size; i+= increments) {
+                    for(int j = 0; j < 3; j++) {
+                        timeElapsed[j] = clock();
+                        function_5(i);
+                        timeElapsed[j] = clock() - timeElapsed[j];
+                    }
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                }
+                break;
+            case 6:
+                for(unsigned long i = 0; i <= size; i+= increments) {
+                    unsigned long *list = makeList(i);
+                    for(int j = 0; j < 3; j++) {
+                        timeElapsed[j] = clock();
+                        function_6(list, i);
+                        timeElapsed[j] = clock() - timeElapsed[j];
+                    }
+                    free(list);
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                }
+                break;
+            case 7:
+                for(unsigned long i = 0; i <= size; i+= increments) {
+                    for(int j = 0; j < 3; j++) {
+                        timeElapsed[j] = clock();
+                        function_7(i);
+                        timeElapsed[j] = clock() - timeElapsed[j];
+                    }
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                }
+                break;
+            default:
+                exit(EXIT_FAILURE);
         }
     }
 }
