@@ -22,12 +22,15 @@ int main(int argc, char *argv[]) {
         switch(c) {
             case 's':
                 size = atol(optarg);
+                printf("s received\n");
                 break;
             case 'f':
                 function = atoi(optarg);
+                printf("f received\n");
                 break;
             case 'i':
                 iterations = atoi(optarg);
+                printf("i received\n");
                 break;
             case ':':
                 fprintf(stderr, "%s: option '-%c' requires an argument\n", argv[0], optopt);
