@@ -31,6 +31,7 @@ int main(int argc, char *argv[]) {
                 break;
             case 'F':
                 fp = fopen(optarg, "a");
+                break;
             case ':':
                 fprintf(stderr, "%s: option '-%c' requires an argument\n", argv[0], optopt);
                 exit(EXIT_FAILURE);
