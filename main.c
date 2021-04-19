@@ -86,11 +86,11 @@ int main(int argc, char *argv[]) {
             case 3:
                 for(unsigned long i = 1; i <= size; i+= increments) {
                     unsigned long *list;
-                    if(type == 3)
+                    if(type == 2)
                         list = reverseList(i);
                     else
                         list = makeList(i);
-                    if(type == 2)
+                    if(type == 3)
                         shuffleList(list, size);
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
@@ -126,7 +126,13 @@ int main(int argc, char *argv[]) {
                 break;
             case 6:
                 for(unsigned long i = 1; i <= size; i+= increments) {
-                    unsigned long *list = makeList(i);
+                    unsigned long *list;
+                    if(type == 2)
+                        list = reverseList(i);
+                    else
+                        list = makeList(i);
+                    if(type == 3)
+                        shuffleList(list, size);
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
                         function_6(list, i);
