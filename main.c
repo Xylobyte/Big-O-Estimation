@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     unsigned long size = 0;
 
     if (argc == 1) {
-        printf("usage: main -s size -f function -l -i iterations\n");
+        printf("usage: main -s size -f function -i iterations\n");
         exit(EXIT_FAILURE);
     }
     while((c = getopt(argc, argv, ":s:f:i")) != -1) {
@@ -23,10 +23,10 @@ int main(int argc, char *argv[]) {
                 size = atol(optarg);
                 break;
             case 'f':
-                function = atol(optarg);
+                function = atoi(optarg);
                 break;
             case 'i':
-                iterations = atol(optarg);
+                iterations = atoi(optarg);
                 break;
             case ':':
                 fprintf(stderr, "%s: option '-%c' requires an argument\n", argv[0], optopt);
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
             case '?':
             default:
                 printf("illegal option %c - ignored\n", optopt);
-                printf("uusage: main -s size -f function\n");
+                printf("usage: main -s size -f function\n");
                 break;
         }
     }
