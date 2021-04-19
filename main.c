@@ -55,6 +55,7 @@ int main(int argc, char *argv[]) {
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
                     fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 2:
@@ -65,6 +66,7 @@ int main(int argc, char *argv[]) {
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
                     fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 3:
@@ -77,6 +79,7 @@ int main(int argc, char *argv[]) {
                     }
                     free(list);
                     fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 4:
@@ -87,6 +90,7 @@ int main(int argc, char *argv[]) {
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
                     fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 5:
@@ -97,6 +101,7 @@ int main(int argc, char *argv[]) {
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
                     fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 6:
@@ -109,6 +114,7 @@ int main(int argc, char *argv[]) {
                     }
                     free(list);
                     fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 7:
@@ -119,6 +125,7 @@ int main(int argc, char *argv[]) {
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
                     fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             default:
