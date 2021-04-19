@@ -7,7 +7,7 @@
 unsigned long *makeList(unsigned long size);
 void shuffleList(unsigned long *list, unsigned long size);
 unsigned long *reverseList(unsigned long size);
-void swap(unsigned long *a, unsigned long *b);
+void swap(unsigned long **a, unsigned long **b);
 unsigned long randomNumber();
 
 int main(int argc, char *argv[]) {
@@ -191,9 +191,9 @@ unsigned long *reverseList(unsigned long size) {
     return list;
 }
 
-void swap(unsigned long *a, unsigned long *b) {
+void swap(unsigned long **a, unsigned long **b) {
     printf("Checkpoint 1\n");
-    unsigned long temp = *a;
+    unsigned long *temp = *a;
     printf("Checkpoint 2\n");
     *a = *b;
     printf("Checkpoint 3\n");
