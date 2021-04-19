@@ -5,11 +5,16 @@
 #include "blackbox.h"
 
 unsigned long *makeList(unsigned long size);
+void shuffleList(unsigned long *list, unsigned long size);
+unsigned long *reverseList(unsigned long size);
+void swap(unsigned long *a, unsigned long *b);
+unsigned long randomNumber();
 
 int main(int argc, char *argv[]) {
     int c;
     int function = 0;
     int iterations = 0;
+    int type = 1;
     clock_t timeElapsed[3];
     unsigned long size = 0;
     FILE *fp = NULL;
@@ -18,7 +23,7 @@ int main(int argc, char *argv[]) {
         printf("usage: main -s size -f function -i iterations\n");
         exit(EXIT_FAILURE);
     }
-    while((c = getopt(argc, argv, "s:f:i:F:")) != -1) {
+    while((c = getopt(argc, argv, "s:f:i:F:SRM")) != -1) {
         switch(c) {
             case 's':
                 size = atol(optarg);
@@ -31,6 +36,15 @@ int main(int argc, char *argv[]) {
                 break;
             case 'F':
                 fp = fopen(optarg, "w");
+                break;
+            case 'S':
+                type = 1;
+                break;
+            case 'R':
+                type = 2;
+                break;
+            case 'M':
+                type = 3;
                 break;
             case ':':
                 fprintf(stderr, "%s: option '-%c' requires an argument\n", argv[0], optopt);
@@ -71,7 +85,13 @@ int main(int argc, char *argv[]) {
                 break;
             case 3:
                 for(unsigned long i = 1; i <= size; i+= increments) {
-                    unsigned long *list = makeList(i);
+                    unsigned long *list;
+                    if(type == 3)
+                        list = reverseList(i);
+                    else
+                        list = makeList(i);
+                    if(type == 2)
+                        shuffleList(list, size);
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
                         function_3(list, i);
@@ -143,4 +163,41 @@ unsigned long *makeList(unsigned long size) {
         *(list+i) = i;
     }
     return list;
+}
+
+void shuffleList(unsigned long *list, unsigned long size) {
+    srandom(time(NULL));
+
+    for (unsigned long i = size - 1; i > 0; i--) {
+        unsigned long j = randomNumber() % (i + 1);
+        swap(list + 1, list + j);
+    }
+}
+
+unsigned long *reverseList(unsigned long size) {
+    unsigned long i, j = 0;
+    unsigned long *list = malloc(size * sizeof(unsigned long));
+
+    for(i = size - 1; i > 0; i--) {
+        *(list+i) = j++;
+    }
+    return list;
+}
+
+void swap(unsigned long *a, unsigned long *b) {
+    unsigned long temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+unsigned long randomNumber() {
+    unsigned long n, p, r;
+    int i;
+
+    n = 0;
+    for(i = 0, p = 1; i < 8; i++, p *= 256) {
+        r = random() % 256;
+        n += r * p;
+    }
+    return n;
 }
