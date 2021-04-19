@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
                     else
                         list = makeList(i);
                     if(type == 3)
-                        shuffleList(list, size);
+                        shuffleList(list, i);
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
                         function_3(list, i);
@@ -132,7 +132,7 @@ int main(int argc, char *argv[]) {
                     else
                         list = makeList(i);
                     if(type == 3)
-                        shuffleList(list, size);
+                        shuffleList(list, i);
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
                         function_6(list, i);
@@ -176,8 +176,8 @@ void shuffleList(unsigned long *list, unsigned long size) {
     printf("Checkpoint 0\n");
     for (unsigned long i = size - 1; i > 0; i--) {
         printf("Checkpoint 0.5\n");
-        unsigned long j = randomNumber() % size;
-        swap(&(list[i]), &(list[j]));
+        unsigned long j = randomNumber() % (i + 1);
+        swap(&(list[0]), &(list[j]));
     }
 }
 
