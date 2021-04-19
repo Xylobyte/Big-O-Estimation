@@ -9,7 +9,7 @@ unsigned long *makeList(unsigned long size);
 int main(int argc, char *argv[]) {
     int c;
     int function;
-    unsigned long size;
+    unsigned long size = 0;
 
     if (argc == 1) {
         printf("usage: main -s size -f function\n");
@@ -33,9 +33,11 @@ int main(int argc, char *argv[]) {
                 break;
         }
     }
-    unsigned long *list = makeList(size);
-    for (int i = 0; i < size; ++i) {
-        printf("%lu\n", *(list + i));
+    if(size) {
+        unsigned long *list = makeList(size);
+        for (int i = 0; i < size; ++i) {
+            printf("%lu\n", *(list + i));
+        }
     }
 }
 
