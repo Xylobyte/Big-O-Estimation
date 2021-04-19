@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
     while((c = getopt(argc, argv, ":s:f:i")) != -1) {
+        printf("Checkpoint 0\n");
         switch(c) {
             case 's':
                 size = atol(optarg);
