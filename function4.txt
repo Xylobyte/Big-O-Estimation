@@ -1,3 +1,24 @@
+gnuplot> fit g(x) 'function4.txt' using 1:2 via c
+iter      chisq       delta/lim  lambda   c
+   0 3.3991225818e+20   0.00e+00  5.83e+08    1.010601e+03
+   1 3.3923651965e+14  -1.00e+11  5.83e+07    1.035525e+00
+   2 3.0677028901e+09  -1.11e+10  5.83e+06    2.596954e-02
+   3 3.0676689674e+09  -1.11e+00  5.83e+05    2.595945e-02
+   4 3.0676689674e+09   0.00e+00  5.83e+04    2.595945e-02
+iter      chisq       delta/lim  lambda   c
+
+After 4 iterations the fit converged.
+final sum of squares of residuals : 3.06767e+09
+rel. change during last iteration : 0
+
+degrees of freedom    (FIT_NDF)                        : 999
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1752.35
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3.07074e+06
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+c               = 0.0259594        +/- 9.605e-05    (0.37%)
+
 2 4
 1002 26
 2002 48
