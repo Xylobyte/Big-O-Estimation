@@ -18,19 +18,15 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
     while((c = getopt(argc, argv, "s:f:i:")) != -1) {
-        printf("Checkpoint 0\n");
         switch(c) {
             case 's':
                 size = atol(optarg);
-                printf("s received\n");
                 break;
             case 'f':
                 function = atoi(optarg);
-                printf("f received\n");
                 break;
             case 'i':
                 iterations = atoi(optarg);
-                printf("i received\n");
                 break;
             case ':':
                 fprintf(stderr, "%s: option '-%c' requires an argument\n", argv[0], optopt);
@@ -43,18 +39,13 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    printf("Checkpoint 1\n");
     unsigned long increments = size / iterations;
-    printf("Checkpoint 2\n");
 
     if(function) {
         switch(function) {
             case 1:
-                printf("Checkpoint 3\n");
                 for(unsigned long i = 0; i <= size; i+= increments) {
-                    printf("Checkpoint 4\n");
                     for(int j = 0; j < 3; j++) {
-                        printf("Checkpoint 5\n");
                         timeElapsed[j] = clock();
                         function_1(i);
                         timeElapsed[j] = clock() - timeElapsed[j];
