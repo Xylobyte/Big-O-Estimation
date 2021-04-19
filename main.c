@@ -9,7 +9,7 @@ unsigned long *makeList(unsigned long size);
 int main(int argc, char *argv[]) {
     int c;
     int function = 0;
-    int iterations = 0;
+    unsigned long increments;
     clock_t timeElapsed[3];
     unsigned long size = 0;
     FILE *fp = NULL;
@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
                 function = atoi(optarg);
                 break;
             case 'i':
-                iterations = atoi(optarg);
+                increments = atoi(optarg);
                 break;
             case 'F':
                 fp = fopen(optarg, "w");
@@ -42,8 +42,6 @@ int main(int argc, char *argv[]) {
                 break;
         }
     }
-
-    unsigned long increments = size / iterations;
 
     if(function) {
         switch(function) {
