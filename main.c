@@ -194,8 +194,11 @@ unsigned long *reverseList(unsigned long size) {
 void swap(unsigned long *a, unsigned long *b) {
     printf("Checkpoint 1\n");
     unsigned long temp = *a;
+    printf("Checkpoint 2\n");
     *a = *b;
+    printf("Checkpoint 3\n");
     *b = temp;
+    printf("Checkpoint 4\n");
 }
 
 unsigned long randomNumber() {
