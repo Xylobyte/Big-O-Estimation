@@ -177,7 +177,7 @@ void shuffleList(unsigned long *list, unsigned long size) {
     for (unsigned long i = size - 1; i > 0; i--) {
         printf("Checkpoint 0.5\n");
         unsigned long j = randomNumber() % (i + 1);
-        swap(list, list + j);
+        swap(list + i, list + j);
     }
 }
 
