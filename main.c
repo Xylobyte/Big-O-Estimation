@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
     if(function) {
         switch(function) {
             case 1:
-                for(unsigned long i = 0; i <= size; i+= increments) {
+                for(unsigned long i = 1; i <= size; i+= increments) {
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
                         function_1(i);
@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
                 }
                 break;
             case 2:
-                for(unsigned long i = 0; i <= size; i+= increments) {
+                for(unsigned long i = 1; i <= size; i+= increments) {
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
                         function_2(i);
@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
                 }
                 break;
             case 3:
-                for(unsigned long i = 0; i <= size; i+= increments) {
+                for(unsigned long i = 1; i <= size; i+= increments) {
                     unsigned long *list = makeList(i);
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
                 }
                 break;
             case 4:
-                for(unsigned long i = 0; i <= size; i+= increments) {
+                for(unsigned long i = 1; i <= size; i+= increments) {
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
                         function_4(i);
@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
                 }
                 break;
             case 5:
-                for(unsigned long i = 0; i <= size; i+= increments) {
+                for(unsigned long i = 1; i <= size; i+= increments) {
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
                         function_5(i);
@@ -105,7 +105,7 @@ int main(int argc, char *argv[]) {
                 }
                 break;
             case 6:
-                for(unsigned long i = 0; i <= size; i+= increments) {
+                for(unsigned long i = 1; i <= size; i+= increments) {
                     unsigned long *list = makeList(i);
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
@@ -118,7 +118,7 @@ int main(int argc, char *argv[]) {
                 }
                 break;
             case 7:
-                for(unsigned long i = 0; i <= size; i+= increments) {
+                for(unsigned long i = 1; i <= size; i+= increments) {
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
                         function_7(i);
