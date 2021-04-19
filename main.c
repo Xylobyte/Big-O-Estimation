@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
                 }
                 break;
             case 4:
-                for(unsigned long i = 0; i <= size; i+= increments) {
+                for(unsigned long i = 2; i <= size; i+= increments) {
                     for(int j = 0; j < 3; j++) {
                         timeElapsed[j] = clock();
                         function_4(i);
