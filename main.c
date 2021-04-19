@@ -12,6 +12,7 @@ int main(int argc, char *argv[]) {
     int iterations = 0;
     clock_t timeElapsed[3];
     unsigned long size = 0;
+    FILE *fp = NULL;
 
     if (argc == 1) {
         printf("usage: main -s size -f function -i iterations\n");
@@ -28,6 +29,8 @@ int main(int argc, char *argv[]) {
             case 'i':
                 iterations = atoi(optarg);
                 break;
+            case 'F':
+                fp = fopen(optarg, "a");
             case ':':
                 fprintf(stderr, "%s: option '-%c' requires an argument\n", argv[0], optopt);
                 exit(EXIT_FAILURE);
@@ -50,7 +53,7 @@ int main(int argc, char *argv[]) {
                         function_1(i);
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
-                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 2:
@@ -60,7 +63,7 @@ int main(int argc, char *argv[]) {
                         function_2(i);
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
-                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 3:
@@ -72,7 +75,7 @@ int main(int argc, char *argv[]) {
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
                     free(list);
-                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 4:
@@ -82,7 +85,7 @@ int main(int argc, char *argv[]) {
                         function_4(i);
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
-                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 5:
@@ -92,7 +95,7 @@ int main(int argc, char *argv[]) {
                         function_5(i);
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
-                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 6:
@@ -104,7 +107,7 @@ int main(int argc, char *argv[]) {
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
                     free(list);
-                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             case 7:
@@ -114,13 +117,14 @@ int main(int argc, char *argv[]) {
                         function_7(i);
                         timeElapsed[j] = clock() - timeElapsed[j];
                     }
-                    printf("%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
+                    fprintf(fp, "%lu %lu\n", i, ((timeElapsed[0] + timeElapsed[1] + timeElapsed[2]) / 3));
                 }
                 break;
             default:
                 exit(EXIT_FAILURE);
         }
     }
+    fclose(fp);
 }
 
 unsigned long *makeList(unsigned long size) {
