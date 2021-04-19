@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
         printf("usage: main -s size -f function -i iterations\n");
         exit(EXIT_FAILURE);
     }
-    while((c = getopt(argc, argv, ":s:f:i")) != -1) {
+    while((c = getopt(argc, argv, "s:f:i:")) != -1) {
         printf("Checkpoint 0\n");
         switch(c) {
             case 's':
