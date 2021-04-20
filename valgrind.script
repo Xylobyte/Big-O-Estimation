@@ -1,0 +1,40 @@
+Script started on 2021-04-19 21:17:30-06:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+]0;dxgriego@Parallels: ~/cse122/cse122-project[01;32mdxgriego@Parallels[00m:[01;34m~/cse122/cse122-project[00m$ valgrind ./m[K[K[K [K--leak-check-[K=full ./main -s 100 -f 1 -i 10[K[K20[K[K20 -F tex[Kst.s[Ktxt
+==122046== Memcheck, a memory error detector
+==122046== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==122046== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==122046== Command: ./main -s100 -f 1 -i 20 -F test.txt
+==122046== 
+1 226
+6 5
+11 15
+16 40
+21 86
+26 163
+31 787
+36 410
+41 610
+46 845
+51 1162
+56 1471
+61 1986
+66 2538
+71 3275
+76 4387
+81 4641
+86 5529
+91 7354
+96 7674
+==122046== 
+==122046== HEAP SUMMARY:
+==122046==     in use at exit: 0 bytes in 0 blocks
+==122046==   total heap usage: 3 allocs, 3 frees, 5,592 bytes allocated
+==122046== 
+==122046== All heap blocks were freed -- no leaks are possible
+==122046== 
+==122046== For lists of detected and suppressed errors, rerun with: -s
+==122046== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;dxgriego@Parallels: ~/cse122/cse122-project[01;32mdxgriego@Parallels[00m:[01;34m~/cse122/cse122-project[00m$ exit
+exit
+
+Script done on 2021-04-19 21:18:23-06:00 [COMMAND_EXIT_CODE="0"]
