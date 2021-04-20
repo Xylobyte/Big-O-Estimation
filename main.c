@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     FILE *fp = NULL;
 
     if (argc == 1) {
-        printf("usage: main -s size -f function -i iterations\n");
+        printf("usage: main -s size -f function -i iterations -F filename -S -R -M\n");
         exit(EXIT_FAILURE);
     }
     while((c = getopt(argc, argv, "s:f:i:F:SRM")) != -1) {
@@ -57,14 +57,14 @@ int main(int argc, char *argv[]) {
             case '?':
             default:
                 printf("illegal option %c - ignored\n", optopt);
-                printf("usage: main -s size -f function\n");
+                printf("usage: main -s size -f function -i iterations -F filename -S -R -M\n");
                 break;
         }
     }
 
     unsigned long increments = size / iterations;
 
-    if(function) {
+    if(function) {      //Functions are run 3 times with each data point and then the results are averaged
         switch(function) {
             case 1:
                 for(unsigned long i = 1; i <= size; i+= increments) {
@@ -90,14 +90,14 @@ int main(int argc, char *argv[]) {
                 break;
             case 3:
                 for(unsigned long i = 1; i <= size; i+= increments) {
-                    unsigned long *list;
+                    unsigned long *list;        //array is generated then freed for each data set using dynamic values based on iterations
                     if(type == 2)
                         list = reverseList(i);
                     else
                         list = makeList(i);
                     if(type == 3)
                         shuffleList(list, i);
-                    for(int j = 0; j < 3; j++) {
+                    for(int j = 0; j < 3; j++) {        //same array is used for each iteration
                         timeElapsed[j] = clock();
                         function_3(list, i);
                         timeElapsed[j] = clock() - timeElapsed[j];
