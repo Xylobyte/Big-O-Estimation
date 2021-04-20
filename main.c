@@ -1,3 +1,8 @@
+/**
+ * @file main.c
+ * @author Donovan Griego
+ * @brief Runs functions inside of blackbox.o and prints the run-time in a file.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -161,6 +166,11 @@ int main(int argc, char *argv[]) {
     fclose(fp);
 }
 
+/**
+ * Takes a size and makes an array of that size
+ * @param size the size of array
+ * @return address pointing to created array
+ */
 unsigned long *makeList(unsigned long size) {
     unsigned long i;
     unsigned long *list = malloc(size * sizeof(unsigned long));
@@ -171,6 +181,11 @@ unsigned long *makeList(unsigned long size) {
     return list;
 }
 
+/**
+ * Takes an array and its size and shuffles the elements around
+ * @param list address pointing to array
+ * @param size size of array
+ */
 void shuffleList(unsigned long *list, unsigned long size) {
     srandom(time(NULL));
     for (unsigned long i = size - 1; i > 0; i--) {
@@ -179,6 +194,11 @@ void shuffleList(unsigned long *list, unsigned long size) {
     }
 }
 
+/**
+ * Takes a size and makes an array of that size in reversed order
+ * @param size the size of array
+ * @return the array generated
+ */
 unsigned long *reverseList(unsigned long size) {
     unsigned long i, j = 0;
     unsigned long *list = malloc(size * sizeof(unsigned long));
@@ -189,12 +209,21 @@ unsigned long *reverseList(unsigned long size) {
     return list;
 }
 
+/**
+ * swaps two values at specified addresses
+ * @param a address of value one
+ * @param b address of value two
+ */
 void swap(unsigned long *a, unsigned long *b) {
     unsigned long temp = *a;
     *a = *b;
     *b = temp;
 }
 
+/**
+ * generates a random unsigned long
+ * @return the random number
+ */
 unsigned long randomNumber() {
     unsigned long n, p, r;
     int i;
